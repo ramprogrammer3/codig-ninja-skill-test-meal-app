@@ -7,7 +7,7 @@
 
 
 
-.food-card-container{
+.food-card-container, .show-favourite-food{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 2rem;

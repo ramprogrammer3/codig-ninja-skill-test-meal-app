@@ -23,7 +23,7 @@ async function AllFoodData() {
                     <p> ${food.strInstructions.substring(0, 50)}...  </p>
                 </div>
 
-                <div class="btn btn-primary mb-2">
+                <div class="btn btn-primary mb-2" onclick=AddToFavourite(${food.idMeal})>
                     Add To Favourite
                 </div>
                
@@ -67,4 +67,18 @@ search.addEventListener("keyup", () => {
         
     }
 })
+
+
+
+let favouriteFood = [];
+
+
+function AddToFavourite(id){
+    favouriteFood.push(id);
+    localStorage.setItem("favouriteFood",JSON.stringify(favouriteFood));
+}
+
+
+
+
 
