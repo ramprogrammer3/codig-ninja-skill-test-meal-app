@@ -20,7 +20,7 @@ async function AllFoodData() {
                     <p > <b>Name : </b> <span class = "name"> ${food.strMeal} </span>  </p>
                     <p><b> Category : </b>  ${food.strCategory}  </p>
                     <p><b> Country : </b>  ${food.strArea}  </p>
-                    <p> ${food.strInstructions.substring(0, 50)}...  </p>
+                    <p> ${food.strInstructions.substring(0, 50)}...<a  href="./detail.html" onclick=showMore(${food.idMeal}) >Show More</a>  </p>
                 </div>
 
                 <div class="btn btn-primary mb-2" onclick=AddToFavourite(${food.idMeal})>
@@ -77,6 +77,13 @@ function AddToFavourite(id){
     favouriteFood.push(id);
     localStorage.setItem("favouriteFood",JSON.stringify(favouriteFood));
 }
+
+
+function showMore(id){
+    localStorage.setItem("showMore",JSON.stringify(id) )
+}
+
+
 
 
 
