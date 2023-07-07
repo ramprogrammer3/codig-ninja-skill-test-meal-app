@@ -13,22 +13,58 @@ async function AllFoodData() {
     foodDataArray.forEach(food => {
         foodCardContainer.innerHTML += `
                 
-        <div class="food-card">
+            <div class="food-card">
                 <img src= ${food.strMealThumb}
                     alt="" class="img-thumbnail">
                 <div class="p-2">
-                    <p > <b>Name : </b> ${food.strMeal}  </p>
-                    <p><b> Category : </b>  ${food.strCategory} </p>
-                    <p><b> Country : </b> ${food.strArea} </p>
-                    <p> ${food.strInstructions.substring(0,50)}...  </p>
+                    <p > <b>Name : </b> <span class = "name"> ${food.strMeal} </span>  </p>
+                    <p><b> Category : </b>  ${food.strCategory}  </p>
+                    <p><b> Country : </b>  ${food.strArea}  </p>
+                    <p> ${food.strInstructions.substring(0, 50)}...  </p>
                 </div>
-        </div> 
 
+                <div class="btn btn-primary mb-2">
+                    Add To Favourite
+                </div>
+               
+            </div> 
         `
     });
-
 
 }
 
 
 AllFoodData();
+
+
+// fetching search input tag from navbar
+let search = document.querySelector("#searchfood");
+
+search.addEventListener("keyup", () => {
+    let filter = search.value.toLowerCase();
+    
+    let getAllTags = document.body.querySelectorAll(".food-card");
+
+    for (let i = 0; i < getAllTags.length; i++) {
+        
+        // fetching item name 
+        let getItemName = getAllTags[i].getElementsByTagName("span")[0];
+        
+        if(getItemName){
+            let textValue = getItemName.textContent;
+            
+            if(textValue.toLowerCase().indexOf(filter) > -1){
+                getAllTags[i].style.display = " ";
+            }else{
+                getAllTags[i].style.display = "none"
+            }
+            
+        }
+
+        if(filter.length <= 0){
+            getAllTags[i].style.display = "";
+        }
+        
+    }
+})
+
