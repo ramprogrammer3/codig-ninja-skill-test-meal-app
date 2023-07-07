@@ -1,0 +1,24 @@
+
+
+
+.letter-spacing1{
+    letter-spacing: 2px;
+}
+
+
+
+.food-card-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.food-card{
+    border: 1px solid #ccc;
+    min-height: 200px;
+    padding: .4rem;
+    border-radius: 5px;
+}
+
+
