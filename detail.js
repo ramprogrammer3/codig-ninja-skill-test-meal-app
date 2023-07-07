@@ -9,7 +9,6 @@ async function showMoreData() {
 
     let content = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
     let foodData = await content.json();
-    console.log(foodData.meals[0].strMeal)
 
     showMoreContainer.innerHTML = `
 
@@ -29,8 +28,6 @@ async function showMoreData() {
             </div>
 
         </div>
-
-    
     
     `
 
